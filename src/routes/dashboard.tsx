@@ -64,10 +64,10 @@ function Dashboard() {
           <h3 className="font-bold mb-4">البلاغات حسب الفئة</h3>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={catData}>
-              <XAxis dataKey="name" stroke="oklch(0.72 0.04 240)" />
-              <YAxis stroke="oklch(0.72 0.04 240)" />
-              <Tooltip contentStyle={{ background: "oklch(0.22 0.06 260)", border: "1px solid oklch(0.75 0.18 230 / 0.4)", borderRadius: 8 }} />
-              <Bar dataKey="value" fill="#00B4FF" radius={[8, 8, 0, 0]} />
+              <XAxis dataKey="name" stroke="#6B7280" />
+              <YAxis stroke="#6B7280" />
+              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #E5E7EB", borderRadius: 8, color: "#1F2A44" }} />
+              <Bar dataKey="value" fill="#EF3340" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -79,7 +79,7 @@ function Dashboard() {
               <Pie data={statusData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} label>
                 {statusData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Pie>
-              <Tooltip contentStyle={{ background: "oklch(0.22 0.06 260)", border: "1px solid oklch(0.75 0.18 230 / 0.4)", borderRadius: 8 }} />
+              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #E5E7EB", borderRadius: 8, color: "#1F2A44" }} />
             </PieChart>
           </ResponsiveContainer>
         </div>
