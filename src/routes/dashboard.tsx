@@ -9,7 +9,7 @@ import { Activity, AlertCircle, CheckCircle2, Clock, Sparkles, Loader2 } from "l
 
 export const Route = createFileRoute("/dashboard")({ component: Dashboard });
 
-const COLORS = ["#00B4FF", "#FFD66B", "#FF6B9D", "#7C5CFF", "#34E0A1"];
+const COLORS = ["#EF3340", "#00732F", "#B8860B", "#1F2A44", "#6B7280"];
 
 function Dashboard() {
   const fn = useServerFn(listReports);
@@ -64,10 +64,10 @@ function Dashboard() {
           <h3 className="font-bold mb-4">البلاغات حسب الفئة</h3>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={catData}>
-              <XAxis dataKey="name" stroke="oklch(0.72 0.04 240)" />
-              <YAxis stroke="oklch(0.72 0.04 240)" />
-              <Tooltip contentStyle={{ background: "oklch(0.22 0.06 260)", border: "1px solid oklch(0.75 0.18 230 / 0.4)", borderRadius: 8 }} />
-              <Bar dataKey="value" fill="#00B4FF" radius={[8, 8, 0, 0]} />
+              <XAxis dataKey="name" stroke="#6B7280" />
+              <YAxis stroke="#6B7280" />
+              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #E5E7EB", borderRadius: 8, color: "#1F2A44" }} />
+              <Bar dataKey="value" fill="#EF3340" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -79,7 +79,7 @@ function Dashboard() {
               <Pie data={statusData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} label>
                 {statusData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Pie>
-              <Tooltip contentStyle={{ background: "oklch(0.22 0.06 260)", border: "1px solid oklch(0.75 0.18 230 / 0.4)", borderRadius: 8 }} />
+              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #E5E7EB", borderRadius: 8, color: "#1F2A44" }} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -91,7 +91,7 @@ function Dashboard() {
         <div className="flex items-center gap-2 mb-3">
           <Sparkles className="w-5 h-5 text-primary" />
           <h3 className="font-bold">رؤى الذكاء الاصطناعي التنبؤية</h3>
-          <span className="text-xs gold-text">· Gemini</span>
+          <span className="text-xs gold-text">· تحليلات ذكية</span>
         </div>
         {insightsLoading ? <Loader2 className="animate-spin text-primary" /> :
           <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/90">{insights || "—"}</div>}

@@ -60,7 +60,7 @@ function ReportPage() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-primary" /><span className="gold-text font-bold">تصنيف Gemini الذكي</span>
+          <Sparkles className="w-3.5 h-3.5 text-primary" /><span className="gold-text font-bold">تصنيف ذكي تلقائي</span>
         </div>
         <h1 className="text-4xl font-black"><span className="neon-text">رفع بلاغ</span> جديد</h1>
         <p className="text-muted-foreground mt-3">سيقوم الذكاء الاصطناعي بتصنيف بلاغك تلقائياً</p>

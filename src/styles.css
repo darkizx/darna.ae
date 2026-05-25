@@ -34,39 +34,41 @@
 }
 
 :root {
-  --radius: 0.875rem;
-  /* Dark navy futuristic */
-  --background: oklch(0.18 0.05 260);
-  --foreground: oklch(0.98 0.01 240);
-  --card: oklch(0.22 0.06 260 / 0.6);
-  --card-foreground: oklch(0.98 0.01 240);
-  --popover: oklch(0.20 0.06 260);
-  --popover-foreground: oklch(0.98 0.01 240);
-  --primary: oklch(0.75 0.18 230);          /* cyan neon */
-  --primary-foreground: oklch(0.15 0.05 260);
-  --secondary: oklch(0.28 0.06 260);
-  --secondary-foreground: oklch(0.98 0.01 240);
-  --muted: oklch(0.26 0.05 260);
-  --muted-foreground: oklch(0.72 0.04 240);
-  --accent: oklch(0.30 0.08 250);
-  --accent-foreground: oklch(0.98 0.01 240);
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 240);
-  --border: oklch(0.75 0.18 230 / 0.18);
-  --input: oklch(0.28 0.06 260 / 0.6);
-  --ring: oklch(0.75 0.18 230);
-  --neon: oklch(0.78 0.20 220);
-  --gold: oklch(0.82 0.12 85);
+  --radius: 0.625rem;
+  /* UAE Government palette — white base, red & green flag accents, gold */
+  --background: oklch(0.985 0.003 90);                /* warm white */
+  --foreground: oklch(0.18 0.02 260);                 /* near-black ink */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 260);
+  --primary: oklch(0.55 0.20 27);                     /* UAE red #EF3340 */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.005 90);
+  --secondary-foreground: oklch(0.20 0.02 260);
+  --muted: oklch(0.95 0.005 90);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.45 0.13 155);                     /* UAE green #00732F */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.01 90);
+  --input: oklch(0.94 0.005 90);
+  --ring: oklch(0.55 0.20 27);
+  --neon: oklch(0.45 0.13 155);                       /* green accent for "neon-text" alias */
+  --gold: oklch(0.72 0.13 75);                        /* UAE gold */
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.18 0.05 260) 0%, oklch(0.22 0.10 250) 50%, oklch(0.18 0.05 260) 100%);
-  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.20 220), oklch(0.65 0.22 240));
-  --shadow-neon: 0 0 30px oklch(0.75 0.18 230 / 0.5), 0 0 60px oklch(0.75 0.18 230 / 0.2);
-  --shadow-glow: 0 8px 32px oklch(0.10 0.05 260 / 0.6);
+  --gradient-hero: linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.97 0.01 90) 50%, oklch(0.96 0.02 27 / 0.4) 100%);
+  --gradient-neon: linear-gradient(135deg, oklch(0.55 0.20 27), oklch(0.45 0.13 155));
+  --gradient-flag: linear-gradient(90deg, oklch(0.45 0.13 155) 0%, oklch(1 0 0) 33%, oklch(0.18 0.02 260) 66%, oklch(0.55 0.20 27) 100%);
+  --shadow-neon: 0 8px 30px oklch(0.55 0.20 27 / 0.18);
+  --shadow-glow: 0 12px 40px oklch(0.18 0.02 260 / 0.10);
+  --shadow-card: 0 1px 2px oklch(0.18 0.02 260 / 0.06), 0 4px 16px oklch(0.18 0.02 260 / 0.06);
 }
 
 .dark {
-  --background: oklch(0.18 0.05 260);
-  --foreground: oklch(0.98 0.01 240);
+  --background: oklch(0.985 0.003 90);
+  --foreground: oklch(0.18 0.02 260);
 }
 
 @layer base {
@@ -76,8 +78,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     background-image:
-      radial-gradient(circle at 20% 10%, oklch(0.30 0.15 230 / 0.25), transparent 40%),
-      radial-gradient(circle at 80% 90%, oklch(0.35 0.18 250 / 0.20), transparent 40%);
+      radial-gradient(circle at 100% 0%, oklch(0.55 0.20 27 / 0.06), transparent 45%),
+      radial-gradient(circle at 0% 100%, oklch(0.45 0.13 155 / 0.06), transparent 45%);
     background-attachment: fixed;
     min-height: 100vh;
   }
@@ -85,36 +87,42 @@
 
 @layer utilities {
   .glass {
-    background: oklch(0.22 0.06 260 / 0.55);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    border: 1px solid oklch(0.75 0.18 230 / 0.18);
+    background: oklch(1 0 0 / 0.75);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid oklch(0.88 0.01 90);
+    box-shadow: var(--shadow-card);
   }
   .glass-strong {
-    background: oklch(0.20 0.06 260 / 0.85);
-    backdrop-filter: blur(28px) saturate(160%);
-    border: 1px solid oklch(0.75 0.18 230 / 0.25);
+    background: oklch(1 0 0 / 0.95);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid oklch(0.88 0.01 90);
+    box-shadow: var(--shadow-glow);
   }
   .neon-text {
-    color: var(--neon);
-    text-shadow: 0 0 12px oklch(0.78 0.20 220 / 0.6), 0 0 30px oklch(0.78 0.20 220 / 0.3);
+    color: var(--primary);
   }
   .neon-border {
     box-shadow: var(--shadow-neon);
+    border-color: oklch(0.55 0.20 27 / 0.35);
   }
   .gradient-hero { background: var(--gradient-hero); }
   .gradient-neon-bg { background: var(--gradient-neon); }
   .gold-text { color: var(--gold); }
+  .flag-bar {
+    height: 3px;
+    background: var(--gradient-flag);
+  }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px oklch(0.75 0.18 230 / 0.4); }
-    50% { box-shadow: 0 0 40px oklch(0.75 0.18 230 / 0.8), 0 0 60px oklch(0.75 0.18 230 / 0.4); }
+    0%, 100% { box-shadow: 0 0 0 0 oklch(0.55 0.20 27 / 0.30); }
+    50% { box-shadow: 0 0 0 10px oklch(0.55 0.20 27 / 0); }
   }
-  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-6px); }
   }
   .animate-float { animation: float 6s ease-in-out infinite; }
 }
@@ -122,11 +130,10 @@
 /* Tajawal Arabic font */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
 
-/* Leaflet overrides */
-.leaflet-container { background: oklch(0.18 0.05 260) !important; border-radius: 0.875rem; }
-.leaflet-tile { filter: brightness(0.7) saturate(1.2) hue-rotate(180deg); }
+/* Leaflet overrides — light, governmental */
+.leaflet-container { background: oklch(0.96 0.005 90) !important; border-radius: 0.625rem; }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-  background: oklch(0.22 0.06 260) !important;
-  color: oklch(0.98 0.01 240) !important;
-  border: 1px solid oklch(0.75 0.18 230 / 0.4);
+  background: oklch(1 0 0) !important;
+  color: oklch(0.18 0.02 260) !important;
+  border: 1px solid oklch(0.88 0.01 90);
 }

@@ -11,15 +11,15 @@ function Home() {
       {/* HERO */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="UAE futuristic smart city skyline" className="w-full h-full object-cover opacity-50" width={1920} height={1088} />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
+          <img src={heroImg} alt="أفق مدن دولة الإمارات" className="w-full h-full object-cover opacity-15" width={1920} height={1088} />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs mb-6 animate-float">
               <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span className="gold-text font-bold">مدعومة بالذكاء الاصطناعي Gemini</span>
+              <span className="gold-text font-bold">منصة حكومية ذكية · دولة الإمارات</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight">
               <span className="neon-text">دارنا</span>
@@ -68,7 +68,7 @@ function Home() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { t: "تصنيف ذكي للبلاغات", d: "Gemini يحلل ويصنّف البلاغات تلقائياً حسب الفئة والأولوية والشعور.", i: Bot },
+            { t: "تصنيف ذكي للبلاغات", d: "نظام ذكي يحلّل ويصنّف البلاغات تلقائياً حسب الفئة والأولوية ودرجة الإلحاح.", i: Bot },
             { t: "خريطة UAE الذكية", d: "عرض حي وتفاعلي لجميع بلاغات الإمارات على خريطة OpenStreetMap.", i: MapPin },
             { t: "تحليلات تنبؤية", d: "رؤى ذكية لتحسين الخدمات البلدية ومراقبة المرور والنفايات.", i: BarChart3 },
           ].map((f, i) => (
