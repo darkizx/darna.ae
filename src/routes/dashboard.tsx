@@ -9,7 +9,7 @@ import { Activity, AlertCircle, CheckCircle2, Clock, Sparkles, Loader2 } from "l
 
 export const Route = createFileRoute("/dashboard")({ component: Dashboard });
 
-const COLORS = ["#00B4FF", "#FFD66B", "#FF6B9D", "#7C5CFF", "#34E0A1"];
+const COLORS = ["#EF3340", "#00732F", "#B8860B", "#1F2A44", "#6B7280"];
 
 function Dashboard() {
   const fn = useServerFn(listReports);
