@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Fingerprint, ShieldCheck, Lock, ArrowLeft, Loader2 } from "lucide-react";
+import { ShieldCheck, Lock, ArrowLeft, Loader2 } from "lucide-react";
+import { UaePassLogo } from "@/components/UaePassLogo";
 import { useState } from "react";
+
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -46,32 +48,25 @@ function LoginPage() {
             سجّل الدخول إلى منصة <span className="font-bold text-foreground">دارنا</span> باستخدام هويتك الرقمية المعتمدة من حكومة دولة الإمارات العربية المتحدة.
           </p>
 
-          {/* UAE PASS button */}
+          {/* Official UAE PASS button */}
           <button
             onClick={handleUaePass}
             disabled={loading}
-            className="group w-full relative overflow-hidden rounded-md border border-[oklch(0.32_0.04_60)] bg-white hover:bg-[oklch(0.98_0.01_85)] transition-all h-14 px-5 flex items-center justify-between shadow-sm hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+            className="group w-full rounded-md border border-black/20 bg-white hover:border-black/50 hover:shadow-md transition-all h-14 px-5 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-[oklch(0.32_0.04_60)] flex items-center justify-center">
-                {loading ? (
-                  <Loader2 className="w-5 h-5 text-white animate-spin" />
-                ) : (
-                  <Fingerprint className="w-5 h-5 text-white" />
-                )}
-              </div>
-              <div className="text-right leading-tight">
-                <div className="text-[10px] tracking-[0.22em] text-muted-foreground">UAE PASS</div>
-                <div className="font-bold text-foreground text-base">
-                  {loading ? "جارٍ التحقق من الهوية..." : "الدخول عبر الهوية الرقمية"}
-                </div>
-              </div>
-            </div>
-            <div className="text-[10px] font-bold tracking-widest text-accent">
-              {loading ? "" : "→"}
-            </div>
-            <span className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-l from-[oklch(0.55_0.18_25)] via-white to-[oklch(0.45_0.15_145)]" />
+            {loading ? (
+              <>
+                <Loader2 className="w-5 h-5 text-black animate-spin" />
+                <span className="text-sm font-bold text-black">جارٍ التحقق من الهوية...</span>
+              </>
+            ) : (
+              <>
+                <span className="text-sm font-bold text-black/85">Sign in with</span>
+                <UaePassLogo className="h-9" />
+              </>
+            )}
           </button>
+
 
           <div className="flex items-center gap-3 my-6 text-[11px] text-muted-foreground">
             <div className="flex-1 h-px bg-border" />

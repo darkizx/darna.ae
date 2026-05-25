@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Globe, Accessibility, Search, Fingerprint } from "lucide-react";
+import { Phone, Globe, Accessibility, Search } from "lucide-react";
+import { UaePassLogo } from "@/components/UaePassLogo";
+
 
 import logo from "@/assets/darna-logo.png";
 
@@ -44,11 +46,13 @@ export function Navbar() {
 
         <Link
           to="/login"
-          className="hidden sm:inline-flex items-center gap-2 h-10 px-4 rounded-md bg-[oklch(0.32_0.04_60)] hover:bg-[oklch(0.27_0.04_60)] text-white text-sm font-bold shadow-sm transition-colors"
+          className="hidden sm:inline-flex items-center gap-2 h-10 px-3 rounded-md bg-white border border-black/15 hover:border-black/40 hover:shadow transition-all"
+          aria-label="Sign in with UAE PASS"
         >
-          <Fingerprint className="w-4 h-4" />
-          <span>الدخول عبر UAE PASS</span>
+          <span className="text-[11px] font-bold text-black/80">Sign in with</span>
+          <UaePassLogo className="h-7" />
         </Link>
+
 
       </div>
 
