@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Globe, Accessibility, Search } from "lucide-react";
+import { Phone, Globe, Accessibility, Search, Fingerprint } from "lucide-react";
+
 import logo from "@/assets/darna-logo.png";
 
 export function Navbar() {
@@ -34,12 +35,21 @@ export function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-2 flex-1 max-w-md mx-4">
+        <div className="hidden md:flex items-center gap-3 flex-1 max-w-md mx-4">
           <div className="flex items-center w-full border border-border rounded-md bg-muted/50 px-3 h-9">
             <Search className="w-4 h-4 text-muted-foreground" />
             <input className="bg-transparent flex-1 px-2 text-sm outline-none" placeholder="ابحث في الخدمات البلدية..." />
           </div>
         </div>
+
+        <Link
+          to="/login"
+          className="hidden sm:inline-flex items-center gap-2 h-10 px-4 rounded-md bg-[oklch(0.32_0.04_60)] hover:bg-[oklch(0.27_0.04_60)] text-white text-sm font-bold shadow-sm transition-colors"
+        >
+          <Fingerprint className="w-4 h-4" />
+          <span>الدخول عبر UAE PASS</span>
+        </Link>
+
       </div>
 
       {/* Nav strip */}
