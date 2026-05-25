@@ -38,7 +38,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-[148px]">
         <Outlet />
       </main>
       <Toaster />
