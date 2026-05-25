@@ -11,8 +11,8 @@ function Home() {
       {/* HERO */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="UAE futuristic smart city skyline" className="w-full h-full object-cover opacity-50" width={1920} height={1088} />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
+          <img src={heroImg} alt="أفق مدن دولة الإمارات" className="w-full h-full object-cover opacity-15" width={1920} height={1088} />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
