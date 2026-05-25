@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Building2 } from "lucide-react";
+import logo from "@/assets/darna-logo.png";
 
 export function Navbar() {
   return (
@@ -7,9 +7,7 @@ export function Navbar() {
       <div className="flag-bar" />
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center shadow-sm">
-            <Building2 className="w-5 h-5" />
-          </div>
+          <img src={logo} alt="شعار دارنا" width={40} height={40} className="w-10 h-10 object-contain" />
           <div className="leading-tight">
             <div className="text-lg font-black text-foreground">دارنا</div>
             <div className="text-[10px] text-muted-foreground tracking-[0.2em]">DARNA · UAE GOV</div>
