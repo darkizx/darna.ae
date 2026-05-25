@@ -19,7 +19,7 @@ function Home() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs mb-6 animate-float">
               <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span className="gold-text font-bold">مدعومة بالذكاء الاصطناعي Gemini</span>
+              <span className="gold-text font-bold">منصة حكومية ذكية · دولة الإمارات</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight">
               <span className="neon-text">دارنا</span>
@@ -68,7 +68,7 @@ function Home() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { t: "تصنيف ذكي للبلاغات", d: "Gemini يحلل ويصنّف البلاغات تلقائياً حسب الفئة والأولوية والشعور.", i: Bot },
+            { t: "تصنيف ذكي للبلاغات", d: "نظام ذكي يحلّل ويصنّف البلاغات تلقائياً حسب الفئة والأولوية ودرجة الإلحاح.", i: Bot },
             { t: "خريطة UAE الذكية", d: "عرض حي وتفاعلي لجميع بلاغات الإمارات على خريطة OpenStreetMap.", i: MapPin },
             { t: "تحليلات تنبؤية", d: "رؤى ذكية لتحسين الخدمات البلدية ومراقبة المرور والنفايات.", i: BarChart3 },
           ].map((f, i) => (

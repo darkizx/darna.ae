@@ -44,7 +44,7 @@ function Assistant() {
     <div className="max-w-4xl mx-auto px-6 py-10 h-[calc(100vh-4rem)] flex flex-col">
       <div className="text-center mb-6">
         <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-primary" /><span className="gold-text font-bold">Gemini AI</span>
+          <Sparkles className="w-3.5 h-3.5 text-primary" /><span className="gold-text font-bold">مساعد دارنا الرسمي</span>
         </div>
         <h1 className="text-3xl font-black"><span className="neon-text">المساعد الذكي</span></h1>
       </div>

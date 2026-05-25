@@ -10,7 +10,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "دارنا — منصة البلدية الذكية | UAE Smart Municipality" },
-      { name: "description", content: "منصة البلدية الذكية للإمارات العربية المتحدة، مدعومة بالذكاء الاصطناعي Gemini." },
+      { name: "description", content: "دارنا — المنصة الرسمية للبلدية الذكية في دولة الإمارات العربية المتحدة." },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
