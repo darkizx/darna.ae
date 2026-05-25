@@ -44,27 +44,27 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.20 0.03 260);
 
-  --navy: oklch(0.32 0.04 60);                        /* deep coffee brown */
-  --primary: oklch(0.32 0.04 60);                     /* brown as primary */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.01 75);
-  --secondary-foreground: oklch(0.25 0.03 60);
-  --muted: oklch(0.96 0.012 75);
-  --muted-foreground: oklch(0.45 0.03 60);
-  --accent: oklch(0.62 0.12 75);                      /* gold accent */
-  --accent-foreground: oklch(0.20 0.03 60);
+  --navy: oklch(0.55 0.14 80);                        /* rich gold */
+  --primary: oklch(0.62 0.14 80);                     /* gold primary */
+  --primary-foreground: oklch(0.20 0.04 70);
+  --secondary: oklch(0.97 0.02 85);
+  --secondary-foreground: oklch(0.30 0.05 70);
+  --muted: oklch(0.96 0.02 85);
+  --muted-foreground: oklch(0.50 0.05 75);
+  --accent: oklch(0.68 0.16 80);                      /* bright gold accent */
+  --accent-foreground: oklch(0.20 0.04 70);
   --destructive: oklch(0.55 0.18 35);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.88 0.02 75);
-  --input: oklch(0.95 0.012 75);
-  --ring: oklch(0.62 0.12 75);
+  --border: oklch(0.86 0.04 85);
+  --input: oklch(0.95 0.02 85);
+  --ring: oklch(0.68 0.16 80);
 
-  --neon: oklch(0.45 0.08 95);     /* olive-gold (kept as alias) */
-  --gold: oklch(0.68 0.13 75);     /* bright gold */
+  --neon: oklch(0.55 0.14 80);
+  --gold: oklch(0.72 0.16 82);
 
-  --gradient-hero: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.97 0.01 75) 100%);
-  --gradient-neon: linear-gradient(135deg, oklch(0.32 0.04 60), oklch(0.45 0.08 70));
-  --gradient-flag: linear-gradient(90deg, oklch(0.55 0.12 70) 0%, oklch(0.72 0.13 80) 33%, oklch(0.40 0.06 60) 66%, oklch(0.30 0.05 50) 100%);
+  --gradient-hero: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.97 0.03 85) 100%);
+  --gradient-neon: linear-gradient(135deg, oklch(0.62 0.14 80), oklch(0.75 0.15 85));
+  --gradient-flag: linear-gradient(90deg, oklch(0.55 0.14 80) 0%, oklch(0.78 0.16 85) 33%, oklch(0.62 0.14 80) 66%, oklch(0.45 0.10 75) 100%);
   --shadow-neon: 0 1px 0 oklch(0.30 0.05 60 / 0.04), 0 4px 12px oklch(0.30 0.05 60 / 0.08);
   --shadow-glow: 0 1px 2px oklch(0.30 0.05 60 / 0.05), 0 8px 24px oklch(0.30 0.05 60 / 0.08);
   --shadow-card: 0 1px 2px oklch(0.30 0.05 60 / 0.05);

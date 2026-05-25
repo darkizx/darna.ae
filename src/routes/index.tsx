@@ -116,7 +116,7 @@ function Home() {
       </section>
 
       {/* KPI strip */}
-      <section className="bg-[oklch(0.32_0.04_60)] text-white">
+      <section className="bg-[oklch(0.62_0.14_80)] text-white">
         <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { label: "بلاغ نشط", value: "2,847" },
@@ -167,14 +167,14 @@ function Home() {
             <h3 className="text-2xl md:text-3xl font-black navy-text">استكشف بلاغات الإمارات على الخريطة</h3>
             <p className="text-muted-foreground mt-2 max-w-xl">عرض مكاني لحظي لجميع البلاغات البلدية المسجّلة في المنصة.</p>
           </div>
-          <Button asChild size="lg" className="bg-[oklch(0.32_0.04_60)] hover:bg-[oklch(0.38_0.05_60)] text-white rounded-sm">
+          <Button asChild size="lg" className="bg-[oklch(0.62_0.14_80)] hover:bg-[oklch(0.70_0.16_82)] text-white rounded-sm">
             <Link to="/map">فتح الخريطة <ArrowLeft className="ms-2 w-4 h-4" /></Link>
           </Button>
         </div>
       </section>
 
       {/* Government Footer */}
-      <footer className="bg-[oklch(0.24_0.03_55)] text-white/85 mt-10">
+      <footer className="bg-[oklch(0.55_0.14_80)] text-white/85 mt-10">
         <div className="flag-bar" />
         <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8 text-sm">
           <div className="md:col-span-1">
