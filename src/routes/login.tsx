@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ShieldCheck, Lock, ArrowLeft, Loader2 } from "lucide-react";
-import { UaePassLogo } from "@/components/UaePassLogo";
+import { ShieldCheck, Lock, ArrowLeft } from "lucide-react";
+import { UaePassButton } from "@/components/UaePassLogo";
+
 import { useState } from "react";
 
 
@@ -48,24 +49,11 @@ function LoginPage() {
             سجّل الدخول إلى منصة <span className="font-bold text-foreground">دارنا</span> باستخدام هويتك الرقمية المعتمدة من حكومة دولة الإمارات العربية المتحدة.
           </p>
 
-          {/* Official UAE PASS button */}
-          <button
-            onClick={handleUaePass}
-            disabled={loading}
-            className="group w-full rounded-md border border-black/20 bg-white hover:border-black/50 hover:shadow-md transition-all h-14 px-5 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            {loading ? (
-              <>
-                <Loader2 className="w-5 h-5 text-black animate-spin" />
-                <span className="text-sm font-bold text-black">جارٍ التحقق من الهوية...</span>
-              </>
-            ) : (
-              <>
-                <span className="text-sm font-bold text-black/85">Sign in with</span>
-                <UaePassLogo className="h-9" />
-              </>
-            )}
-          </button>
+          {/* Official UAE PASS sign-in button */}
+          <div className="flex justify-center py-2">
+            <UaePassButton onClick={handleUaePass} loading={loading} className="scale-110" />
+          </div>
+
 
 
           <div className="flex items-center gap-3 my-6 text-[11px] text-muted-foreground">
