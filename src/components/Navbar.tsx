@@ -6,7 +6,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white border-b border-border shadow-sm">
       {/* Utility bar */}
-      <div className="bg-[oklch(0.27_0.06_260)] text-white text-[11px]">
+      <div className="bg-[oklch(0.32_0.04_60)] text-white text-[11px]">
         <div className="max-w-7xl mx-auto px-6 h-8 flex items-center justify-between">
           <div className="flex items-center gap-4 opacity-90">
             <span className="hidden sm:inline">حكومة دولة الإمارات العربية المتحدة</span>
