@@ -11,7 +11,6 @@ export function Navbar() {
       <div className="bg-[oklch(0.62_0.14_80)] text-white text-[11px]">
         <div className="max-w-7xl mx-auto px-6 h-8 flex items-center justify-between">
           <div className="flex items-center gap-2 opacity-95">
-            <img src={uaeEmblem} alt="شعار دولة الإمارات" className="h-5 w-auto object-contain drop-shadow" />
             <span className="hidden sm:inline font-semibold">حكومة دولة الإمارات العربية المتحدة</span>
             <span className="hidden md:inline opacity-60">·</span>
             <span className="hidden md:inline">United Arab Emirates Government</span>
