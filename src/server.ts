@@ -50,8 +50,6 @@ function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boole
   );
 }
 
-// h3 swallows in-handler throws into a normal 500 Response with body
-// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
   const contentType = response.headers.get("content-type") ?? "";
@@ -69,6 +67,19 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      // خدعة حقن المفتاح مباشرة في البيئة العامة للسيرفر لضمان وصوله لأي دالة داخله
+      if (env && typeof env === "object") {
+        const castEnv = env as Record<string, unknown>;
+        const apiKey = castEnv.GEMINI_API_KEY || "AIzaSyC5RqfDeqQXAm7CO3DsSzSbJmXtcOTKQYE";
+        
+        // حقن المفتاح تحت كل المسميات المحتملة التي يبحث عنها الكود
+        globalThis.process = globalThis.process || { env: {} };
+        (globalThis.process.env as Record<string, string>)["GEMINI_API_KEY"] = apiKey as string;
+        (globalThis.process.env as Record<string, string>)["VITE_GEMINI_API_KEY"] = apiKey as string;
+        castEnv.VITE_GEMINI_API_KEY = apiKey;
+        castEnv.GEMINI_API_KEY = apiKey;
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
