@@ -67,17 +67,27 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      // خدعة حقن المفتاح مباشرة في البيئة العامة للسيرفر لضمان وصوله لأي دالة داخله
+      // التعديل الحاسم لـ Cloudflare Workers و TanStack
       if (env && typeof env === "object") {
         const castEnv = env as Record<string, unknown>;
-        const apiKey = castEnv.GEMINI_API_KEY || "AIzaSyC5RqfDeqQXAm7CO3DsSzSbJmXtcOTKQYE";
         
-        // حقن المفتاح تحت كل المسميات المحتملة التي يبحث عنها الكود
-        globalThis.process = globalThis.process || { env: {} };
-        (globalThis.process.env as Record<string, string>)["GEMINI_API_KEY"] = apiKey as string;
-        (globalThis.process.env as Record<string, string>)["VITE_GEMINI_API_KEY"] = apiKey as string;
-        castEnv.VITE_GEMINI_API_KEY = apiKey;
-        castEnv.GEMINI_API_KEY = apiKey;
+        // جلب المفتاح المكتوب في wrangler.jsonc أو الداشبورد
+        const apiKey = castEnv.GEMINI_API_KEY || castEnv.VITE_GEMINI_API_KEY || "AIzaSyC5RqfDeqQXAm7CO3DsSzSbJmXtcOTKQYE";
+        
+        // تثبيت المفتاح بشكل إجباري وصارم في كل مكان ممكن بالذاكرة
+        if (!globalThis.process) {
+          (globalThis as any).process = { env: {} };
+        }
+        if (!globalThis.process.env) {
+          globalThis.process.env = {};
+        }
+        
+        globalThis.process.env["GEMINI_API_KEY"] = apiKey as string;
+        globalThis.process.env["VITE_GEMINI_API_KEY"] = apiKey as string;
+        
+        // تثبيت المتغيرات في كائن البيئة الخاص بـ Cloudflare
+        castEnv["GEMINI_API_KEY"] = apiKey;
+        castEnv["VITE_GEMINI_API_KEY"] = apiKey;
       }
 
       const handler = await getServerEntry();
