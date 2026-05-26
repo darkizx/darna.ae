@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Globe, Accessibility, Search } from "lucide-react";
 import { UaePassButton } from "@/components/UaePassLogo";
-import logo from "@/assets/darna-logo.png";
 import uaeEmblem from "@/assets/uae-emblem.png";
 
 export function Navbar() {
