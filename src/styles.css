@@ -31,7 +31,7 @@
   --color-gold: var(--gold);
   --color-neon: var(--neon);
   --color-navy: var(--navy);
-  --font-display: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-display: "Cairo", system-ui, sans-serif;
   --font-heading: "Cairo", system-ui, sans-serif;
 }
 
