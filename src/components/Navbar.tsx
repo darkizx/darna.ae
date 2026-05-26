@@ -27,9 +27,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3">
           <img src={uaeEmblem} alt="شعار دولة الإمارات العربية المتحدة" className="h-14 w-auto object-contain" />
-          <div className="h-12 w-px bg-border" />
-          <img src={logo} alt="شعار دارنا" className="h-12 w-auto object-contain" />
-          <div className="leading-tight border-r border-border pr-3 mr-1">
+          <div className="leading-tight pr-3 mr-1">
             <div className="text-xl font-black navy-text">دارنا</div>
             <div className="text-[10px] text-muted-foreground tracking-[0.18em]">DARNA · SMART MUNICIPALITY</div>
           </div>
