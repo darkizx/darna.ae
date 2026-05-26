@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-city.jpg";
 import logo from "@/assets/darna-logo.png";
+import schoolLogo from "@/assets/al-falah-school.png";
 
 export const Route = createFileRoute("/")({ component: Home });
 
