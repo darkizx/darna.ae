@@ -200,6 +200,22 @@ function Home() {
             </ul>
           </div>
         </div>
+        {/* School credit */}
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <img src={schoolLogo} alt="مدرسة الفلاح الخاصة" width={56} height={56} className="w-14 h-14 object-contain bg-white rounded-sm p-1" />
+              <div className="text-xs">
+                <div className="font-bold text-white">مدرسة الفلاح الخاصة</div>
+                <div className="opacity-70">Al Falah Private School</div>
+              </div>
+            </div>
+            <div className="text-[11px] opacity-80 text-center md:text-right">
+              <div className="font-bold text-white mb-1">الطلاب المبرمجون للموقع</div>
+              <div>محمد عبدالله — صف 12 · مبين عبدالله — صف 12 · عبدالجليل ماجد — صف 11</div>
+            </div>
+          </div>
+        </div>
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] opacity-70">
             <div>© 2026 دارنا — جميع الحقوق محفوظة لحكومة دولة الإمارات العربية المتحدة</div>
