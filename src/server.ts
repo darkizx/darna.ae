@@ -50,6 +50,8 @@ function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boole
   );
 }
 
+// h3 swallows in-handler throws into a normal 500 Response with body
+// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
   const contentType = response.headers.get("content-type") ?? "";
@@ -67,29 +69,6 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      // التعديل الحاسم لـ Cloudflare Workers و TanStack
-      if (env && typeof env === "object") {
-        const castEnv = env as Record<string, unknown>;
-        
-        // جلب المفتاح المكتوب في wrangler.jsonc أو الداشبورد
-        const apiKey = castEnv.GEMINI_API_KEY || castEnv.VITE_GEMINI_API_KEY || "AIzaSyC5RqfDeqQXAm7CO3DsSzSbJmXtcOTKQYE";
-        
-        // تثبيت المفتاح بشكل إجباري وصارم في كل مكان ممكن بالذاكرة
-        if (!globalThis.process) {
-          (globalThis as any).process = { env: {} };
-        }
-        if (!globalThis.process.env) {
-          globalThis.process.env = {};
-        }
-        
-        globalThis.process.env["GEMINI_API_KEY"] = apiKey as string;
-        globalThis.process.env["VITE_GEMINI_API_KEY"] = apiKey as string;
-        
-        // تثبيت المتغيرات في كائن البيئة الخاص بـ Cloudflare
-        castEnv["GEMINI_API_KEY"] = apiKey;
-        castEnv["VITE_GEMINI_API_KEY"] = apiKey;
-      }
-
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
