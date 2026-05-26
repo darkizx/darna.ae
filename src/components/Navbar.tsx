@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Globe, Accessibility, Search } from "lucide-react";
 import { UaePassButton } from "@/components/UaePassLogo";
-import logo from "@/assets/darna-logo.png";
 import uaeEmblem from "@/assets/uae-emblem.png";
 
 export function Navbar() {
@@ -11,7 +10,6 @@ export function Navbar() {
       <div className="bg-[oklch(0.62_0.14_80)] text-white text-[11px]">
         <div className="max-w-7xl mx-auto px-6 h-8 flex items-center justify-between">
           <div className="flex items-center gap-2 opacity-95">
-            <img src={uaeEmblem} alt="شعار دولة الإمارات" className="h-5 w-auto object-contain drop-shadow" />
             <span className="hidden sm:inline font-semibold">حكومة دولة الإمارات العربية المتحدة</span>
             <span className="hidden md:inline opacity-60">·</span>
             <span className="hidden md:inline">United Arab Emirates Government</span>
@@ -28,9 +26,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3">
           <img src={uaeEmblem} alt="شعار دولة الإمارات العربية المتحدة" className="h-14 w-auto object-contain" />
-          <div className="h-12 w-px bg-border" />
-          <img src={logo} alt="شعار دارنا" className="h-12 w-auto object-contain" />
-          <div className="leading-tight border-r border-border pr-3 mr-1">
+          <div className="leading-tight pr-3 mr-1">
             <div className="text-xl font-black navy-text">دارنا</div>
             <div className="text-[10px] text-muted-foreground tracking-[0.18em]">DARNA · SMART MUNICIPALITY</div>
           </div>
