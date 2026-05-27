@@ -130,6 +130,35 @@ function KPI({ icon: Icon, label, value, color }: { icon: any; label: string; va
   );
 }
 
+function InsightsList({ raw }: { raw: string }) {
+  if (!raw) return <div className="text-sm text-muted-foreground">—</div>;
+  const lines = raw
+    .split("\n")
+    .map((l) => l.replace(/^[\s*\-•]+/, "").replace(/\*\*/g, "").trim())
+    .filter(Boolean);
+  return (
+    <ol className="space-y-3">
+      {lines.map((line, i) => {
+        const [head, ...rest] = line.split(":");
+        const hasTitle = rest.length > 0;
+        return (
+          <li key={i} className="flex gap-3 items-start glass rounded-xl p-3">
+            <span className="shrink-0 w-7 h-7 rounded-full bg-primary/15 text-primary font-bold text-sm flex items-center justify-center">{i + 1}</span>
+            <div className="text-sm leading-relaxed text-foreground/90 flex-1">
+              {hasTitle ? (
+                <>
+                  <span className="font-bold gold-text">{head.trim()}</span>
+                  <span className="text-foreground/80">{": " + rest.join(":").trim()}</span>
+                </>
+              ) : line}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
 function PriorityBadge({ p }: { p: string | null }) {
   if (!p) return null;
   const map: Record<string, string> = { high: "bg-destructive/20 text-destructive", medium: "bg-yellow-500/20 text-yellow-400", low: "bg-green-500/20 text-green-400" };
