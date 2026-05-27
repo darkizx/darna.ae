@@ -5,7 +5,7 @@ import { listReports } from "@/lib/reports.functions";
 import { aiInsights } from "@/lib/ai.functions";
 import { useEffect, useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from "recharts";
-import { Activity, AlertCircle, CheckCircle2, Clock, Sparkles, Loader2 } from "lucide-react";
+import { Activity, AlertCircle, CheckCircle2, Clock, Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({ component: Dashboard });
 
@@ -88,14 +88,13 @@ function Dashboard() {
       {/* AI Insights */}
       <div className="glass-strong rounded-2xl p-6 relative overflow-hidden">
         <div className="absolute -top-10 -end-10 w-40 h-40 rounded-full gradient-neon-bg opacity-20 blur-3xl" />
-        <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-5 h-5 text-primary" />
-          <h3 className="font-bold">رؤى الذكاء الاصطناعي التنبؤية</h3>
+        <div className="flex items-center gap-2 mb-4">
+          <h3 className="font-bold text-lg">رؤى الذكاء الاصطناعي التنبؤية</h3>
           <span className="text-xs gold-text">· تحليلات ذكية</span>
         </div>
-        {insightsLoading ? <Loader2 className="animate-spin text-primary" /> :
-          <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/90">{insights || "—"}</div>}
+        {insightsLoading ? <Loader2 className="animate-spin text-primary" /> : <InsightsList raw={insights} />}
       </div>
+
 
       {/* Reports table */}
       <div className="glass-strong rounded-2xl p-6">
@@ -128,6 +127,35 @@ function KPI({ icon: Icon, label, value, color }: { icon: any; label: string; va
       <div className={`text-3xl font-black ${color}`}>{value}</div>
       <div className="text-xs text-muted-foreground mt-1">{label}</div>
     </div>
+  );
+}
+
+function InsightsList({ raw }: { raw: string }) {
+  if (!raw) return <div className="text-sm text-muted-foreground">—</div>;
+  const lines = raw
+    .split("\n")
+    .map((l) => l.replace(/^[\s*\-•]+/, "").replace(/\*\*/g, "").trim())
+    .filter(Boolean);
+  return (
+    <ol className="space-y-3">
+      {lines.map((line, i) => {
+        const [head, ...rest] = line.split(":");
+        const hasTitle = rest.length > 0;
+        return (
+          <li key={i} className="flex gap-3 items-start glass rounded-xl p-3">
+            <span className="shrink-0 w-7 h-7 rounded-full bg-primary/15 text-primary font-bold text-sm flex items-center justify-center">{i + 1}</span>
+            <div className="text-sm leading-relaxed text-foreground/90 flex-1">
+              {hasTitle ? (
+                <>
+                  <span className="font-bold gold-text">{head.trim()}</span>
+                  <span className="text-foreground/80">{": " + rest.join(":").trim()}</span>
+                </>
+              ) : line}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 
