@@ -88,14 +88,13 @@ function Dashboard() {
       {/* AI Insights */}
       <div className="glass-strong rounded-2xl p-6 relative overflow-hidden">
         <div className="absolute -top-10 -end-10 w-40 h-40 rounded-full gradient-neon-bg opacity-20 blur-3xl" />
-        <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-5 h-5 text-primary" />
-          <h3 className="font-bold">رؤى الذكاء الاصطناعي التنبؤية</h3>
+        <div className="flex items-center gap-2 mb-4">
+          <h3 className="font-bold text-lg">رؤى الذكاء الاصطناعي التنبؤية</h3>
           <span className="text-xs gold-text">· تحليلات ذكية</span>
         </div>
-        {insightsLoading ? <Loader2 className="animate-spin text-primary" /> :
-          <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/90">{insights || "—"}</div>}
+        {insightsLoading ? <Loader2 className="animate-spin text-primary" /> : <InsightsList raw={insights} />}
       </div>
+
 
       {/* Reports table */}
       <div className="glass-strong rounded-2xl p-6">
