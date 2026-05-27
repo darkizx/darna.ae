@@ -5,7 +5,7 @@ import { listReports } from "@/lib/reports.functions";
 import { aiInsights } from "@/lib/ai.functions";
 import { useEffect, useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from "recharts";
-import { Activity, AlertCircle, CheckCircle2, Clock, Sparkles, Loader2 } from "lucide-react";
+import { Activity, AlertCircle, CheckCircle2, Clock, Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({ component: Dashboard });
 
