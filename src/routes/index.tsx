@@ -3,13 +3,25 @@ import { Button } from "@/components/ui/button";
 import {
   Upload, Bot, MapPin, BarChart3, ShieldCheck, ArrowLeft,
   FileText, Trash2, Lightbulb, Droplet, TrafficCone, Trees,
-  Building2, Users, CheckCircle2, ChevronLeft
+  Building2, Users, CheckCircle2, ChevronLeft, Quote
 } from "lucide-react";
 import heroImg from "@/assets/hero-city.jpg";
 import logo from "@/assets/darna-logo.png";
 import schoolLogo from "@/assets/al-falah-school.png";
+import { CountUp } from "@/components/CountUp";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: "دارنا — منصة البلديات الذكية في الإمارات" },
+      { name: "description", content: "المنصة الرسمية الموحّدة للبلديات الذكية في الإمارات السبع. أبلغ، تابع، وشارك في بناء مدن أكثر استدامة." },
+      { property: "og:title", content: "دارنا — منصة البلديات الذكية" },
+      { property: "og:description", content: "خدمات بلدية رقمية موثوقة لجميع إمارات الدولة." },
+      { property: "og:type", content: "website" },
+    ],
+  }),
+});
 
 const services = [
   { t: "بلاغ صيانة طرق", i: TrafficCone, to: "/report" },
