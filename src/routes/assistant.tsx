@@ -6,7 +6,17 @@ import { useServerFn } from "@tanstack/react-start";
 import { chatAI } from "@/lib/ai.functions";
 import { Bot, Send, Loader2, Sparkles, User } from "lucide-react";
 
-export const Route = createFileRoute("/assistant")({ component: Assistant });
+export const Route = createFileRoute("/assistant")({
+  component: Assistant,
+  head: () => ({
+    meta: [
+      { title: "المساعد الرسمي — دارنا" },
+      { name: "description", content: "مساعد ذكي للإجابة على استفساراتك حول الخدمات البلدية في الإمارات." },
+      { property: "og:title", content: "المساعد الرسمي — دارنا" },
+      { property: "og:description", content: "استفسر عن الخدمات البلدية بذكاء اصطناعي." },
+    ],
+  }),
+});
 
 type Msg = { role: "user" | "assistant"; content: string };
 

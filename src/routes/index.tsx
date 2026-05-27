@@ -3,13 +3,25 @@ import { Button } from "@/components/ui/button";
 import {
   Upload, Bot, MapPin, BarChart3, ShieldCheck, ArrowLeft,
   FileText, Trash2, Lightbulb, Droplet, TrafficCone, Trees,
-  Building2, Users, CheckCircle2, ChevronLeft
+  Building2, Users, CheckCircle2, ChevronLeft, Quote
 } from "lucide-react";
 import heroImg from "@/assets/hero-city.jpg";
 import logo from "@/assets/darna-logo.png";
 import schoolLogo from "@/assets/al-falah-school.png";
+import { CountUp } from "@/components/CountUp";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: "دارنا — منصة البلديات الذكية في الإمارات" },
+      { name: "description", content: "المنصة الرسمية الموحّدة للبلديات الذكية في الإمارات السبع. أبلغ، تابع، وشارك في بناء مدن أكثر استدامة." },
+      { property: "og:title", content: "دارنا — منصة البلديات الذكية" },
+      { property: "og:description", content: "خدمات بلدية رقمية موثوقة لجميع إمارات الدولة." },
+      { property: "og:type", content: "website" },
+    ],
+  }),
+});
 
 const services = [
   { t: "بلاغ صيانة طرق", i: TrafficCone, to: "/report" },
@@ -116,20 +128,34 @@ function Home() {
         </div>
       </section>
 
-      {/* KPI strip */}
+      {/* KPI strip — with animated counters */}
       <section className="bg-[oklch(0.62_0.14_80)] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { label: "بلاغ نشط", value: "2,847" },
-            { label: "تم حلها اليوم", value: "412" },
-            { label: "إمارات مغطاة", value: "7" },
-            { label: "رضا المتعاملين", value: "94%" },
+            { label: "بلاغ نشط", value: 2847, suffix: "" },
+            { label: "تم حلها اليوم", value: 412, suffix: "" },
+            { label: "إمارات مغطاة", value: 7, suffix: "" },
+            { label: "رضا المتعاملين", value: 94, suffix: "%" },
           ].map((s, i) => (
             <div key={i} className={i > 0 ? "md:border-r md:border-white/15 md:pr-6" : ""}>
-              <div className="text-3xl md:text-4xl font-black">{s.value}</div>
-              <div className="text-xs opacity-70 mt-1">{s.label}</div>
+              <div className="text-3xl md:text-5xl font-black">
+                <CountUp end={s.value} suffix={s.suffix} />
+              </div>
+              <div className="text-xs opacity-80 mt-2">{s.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Partners strip */}
+      <section className="border-y border-border bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="text-center text-xs text-muted-foreground font-bold mb-5 tracking-widest">الجهات الشريكة</div>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 opacity-75">
+            {["بلدية أبوظبي", "بلدية دبي", "بلدية الشارقة", "بلدية عجمان", "أم القيوين", "رأس الخيمة", "بلدية الفجيرة"].map((p) => (
+              <div key={p} className="text-sm font-bold navy-text hover:opacity-100 transition-opacity">{p}</div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -160,8 +186,40 @@ function Home() {
         </div>
       </section>
 
+      {/* Success Stories */}
+      <section className="bg-[oklch(0.97_0.005_90)] border-y border-border">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <div className="text-xs text-accent font-bold mb-2">قصص نجاح</div>
+            <h2 className="text-3xl md:text-4xl font-black navy-text">بلاغات تم حلها بكفاءة</h2>
+            <p className="text-muted-foreground mt-3">نتائج حقيقية من تعاون المواطنين مع الجهات البلدية.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { t: "إصلاح إنارة شارع الكورنيش", d: "تم إصلاح 18 عمود إنارة في غضون 48 ساعة من تلقي البلاغات.", loc: "أبوظبي · الكورنيش", days: "2 أيام", cat: "إنارة" },
+              { t: "تنظيف منطقة الواجهة البحرية", d: "حملة نظافة شاملة بعد بلاغات متعددة من سكان المنطقة.", loc: "دبي · جميرا", days: "5 أيام", cat: "نظافة" },
+              { t: "ترميم رصيف حي القاسمية", d: "إعادة تأهيل كاملة للأرصفة المتضررة بطول 320 متراً.", loc: "الشارقة · القاسمية", days: "12 يوم", cat: "طرق" },
+            ].map((s, i) => (
+              <div key={i} className="gov-card rounded-sm p-6 hover:shadow-lg transition-shadow">
+                <Quote className="w-6 h-6 text-accent/40 mb-3" />
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold px-2 py-1 rounded-sm bg-accent/10 text-accent">{s.cat}</span>
+                  <span className="text-[10px] text-muted-foreground">حُلّ خلال {s.days}</span>
+                </div>
+                <h3 className="font-bold navy-text mb-2">{s.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{s.d}</p>
+                <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground pt-3 border-t border-border">
+                  <MapPin className="w-3 h-3 text-accent" /> {s.loc}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Map CTA */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
+      <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="bg-white border border-border rounded-sm p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="text-xs text-accent font-bold mb-2">الخريطة الوطنية</div>

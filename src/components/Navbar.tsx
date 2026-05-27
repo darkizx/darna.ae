@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Globe, Accessibility, Search } from "lucide-react";
 import { UaePassButton } from "@/components/UaePassLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import uaeEmblem from "@/assets/uae-emblem.png";
 
 export function Navbar() {
@@ -16,11 +17,13 @@ export function Navbar() {
           </div>
           <div className="flex items-center gap-4">
             <button className="flex items-center gap-1 hover:opacity-80"><Accessibility className="w-3 h-3" /> إمكانية الوصول</button>
+            <ThemeToggle />
             <button className="flex items-center gap-1 hover:opacity-80"><Globe className="w-3 h-3" /> EN</button>
             <span className="hidden sm:flex items-center gap-1"><Phone className="w-3 h-3" /> 800-DARNA</span>
           </div>
         </div>
       </div>
+
 
       {/* Main bar */}
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
@@ -53,6 +56,7 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 h-11 flex items-center gap-1 text-sm">
           <NavLink to="/">الرئيسية</NavLink>
           <NavLink to="/report">بلاغ جديد</NavLink>
+          <NavLink to="/track">تتبع البلاغ</NavLink>
           <NavLink to="/map">الخريطة التفاعلية</NavLink>
           <NavLink to="/assistant">المساعد الرسمي</NavLink>
           <NavLink to="/dashboard">لوحة التحكم</NavLink>
