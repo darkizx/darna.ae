@@ -214,6 +214,7 @@ function Home() {
             <div className="text-[11px] opacity-80 text-center md:text-right">
               <div className="font-bold text-white mb-1">الطلاب المبرمجون للموقع</div>
               <div>محمد عبدالله — صف 12 · مبين عبدالله — صف 12 · عبدالجليل ماجد — صف 11</div>
+              <div className="mt-1 opacity-90">تحت إشراف المعلم وليد — مسؤول قسم التصميم</div>
             </div>
           </div>
         </div>
