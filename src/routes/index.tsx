@@ -128,20 +128,34 @@ function Home() {
         </div>
       </section>
 
-      {/* KPI strip */}
+      {/* KPI strip — with animated counters */}
       <section className="bg-[oklch(0.62_0.14_80)] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { label: "بلاغ نشط", value: "2,847" },
-            { label: "تم حلها اليوم", value: "412" },
-            { label: "إمارات مغطاة", value: "7" },
-            { label: "رضا المتعاملين", value: "94%" },
+            { label: "بلاغ نشط", value: 2847, suffix: "" },
+            { label: "تم حلها اليوم", value: 412, suffix: "" },
+            { label: "إمارات مغطاة", value: 7, suffix: "" },
+            { label: "رضا المتعاملين", value: 94, suffix: "%" },
           ].map((s, i) => (
             <div key={i} className={i > 0 ? "md:border-r md:border-white/15 md:pr-6" : ""}>
-              <div className="text-3xl md:text-4xl font-black">{s.value}</div>
-              <div className="text-xs opacity-70 mt-1">{s.label}</div>
+              <div className="text-3xl md:text-5xl font-black">
+                <CountUp end={s.value} suffix={s.suffix} />
+              </div>
+              <div className="text-xs opacity-80 mt-2">{s.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Partners strip */}
+      <section className="border-y border-border bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="text-center text-xs text-muted-foreground font-bold mb-5 tracking-widest">الجهات الشريكة</div>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 opacity-75">
+            {["بلدية أبوظبي", "بلدية دبي", "بلدية الشارقة", "بلدية عجمان", "أم القيوين", "رأس الخيمة", "بلدية الفجيرة"].map((p) => (
+              <div key={p} className="text-sm font-bold navy-text hover:opacity-100 transition-opacity">{p}</div>
+            ))}
+          </div>
         </div>
       </section>
 
