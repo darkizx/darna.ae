@@ -5,7 +5,17 @@ import { listReports } from "@/lib/reports.functions";
 import { SmartMap } from "@/components/SmartMap";
 import { Loader2 } from "lucide-react";
 
-export const Route = createFileRoute("/map")({ component: MapPage });
+export const Route = createFileRoute("/map")({
+  component: MapPage,
+  head: () => ({
+    meta: [
+      { title: "الخريطة التفاعلية — دارنا" },
+      { name: "description", content: "خريطة موحّدة لجميع البلاغات البلدية في الإمارات السبع." },
+      { property: "og:title", content: "خريطة بلاغات الإمارات — دارنا" },
+      { property: "og:description", content: "عرض مكاني لحظي للبلاغات البلدية." },
+    ],
+  }),
+});
 
 function MapPage() {
   const fn = useServerFn(listReports);
