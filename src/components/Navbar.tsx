@@ -56,6 +56,7 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 h-11 flex items-center gap-1 text-sm">
           <NavLink to="/">الرئيسية</NavLink>
           <NavLink to="/report">بلاغ جديد</NavLink>
+          <NavLink to="/track">تتبع البلاغ</NavLink>
           <NavLink to="/map">الخريطة التفاعلية</NavLink>
           <NavLink to="/assistant">المساعد الرسمي</NavLink>
           <NavLink to="/dashboard">لوحة التحكم</NavLink>
