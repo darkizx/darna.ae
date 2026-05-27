@@ -10,7 +10,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Upload, Loader2, Sparkles } from "lucide-react";
 
-export const Route = createFileRoute("/report")({ component: ReportPage });
+export const Route = createFileRoute("/report")({
+  component: ReportPage,
+  head: () => ({
+    meta: [
+      { title: "تقديم بلاغ جديد — دارنا" },
+      { name: "description", content: "قدّم بلاغاً بلدياً جديداً في منصة دارنا — تصنيف ذكي وتتبع لحظي." },
+      { property: "og:title", content: "تقديم بلاغ — دارنا" },
+      { property: "og:description", content: "بلاغ بلدي مع تصنيف ذكي وتتبع كامل." },
+    ],
+  }),
+});
 
 function ReportPage() {
   const navigate = useNavigate();
@@ -36,7 +46,7 @@ function ReportPage() {
       toast.info("🤖 يحلل الذكاء الاصطناعي البلاغ...");
       const ai = await classify({ data: { title: form.title, description: form.description } });
 
-      const { error } = await supabase.from("reports").insert({
+      const { data: inserted, error } = await supabase.from("reports").insert({
         ...form,
         image_url,
         category: ai.category,
@@ -45,9 +55,14 @@ function ReportPage() {
         ai_summary: ai.ai_summary,
         lat: 25.2 + Math.random() * 0.5,
         lng: 55.0 + Math.random() * 0.8,
-      });
+      }).select("id").single();
       if (error) throw error;
-      toast.success("تم استلام البلاغ وتصنيفه ذكياً ✨");
+      const shortId = inserted?.id?.slice(0, 8) ?? "";
+      toast.success(`تم استلام البلاغ ✨ رقم البلاغ: ${shortId}`, {
+        description: "احفظ هذا الرقم لمتابعة الحالة",
+        action: { label: "تتبع البلاغ", onClick: () => navigate({ to: "/track" }) },
+        duration: 8000,
+      });
       navigate({ to: "/dashboard" });
     } catch (err) {
       toast.error((err as Error).message);
